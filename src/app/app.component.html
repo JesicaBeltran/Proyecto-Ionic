@@ -1,0 +1,31 @@
+<ion-app>aa
+  <ion-split-pane when="md" contentId="principal">
+  <ion-menu side="start" menuId="first" contentId="principal">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu principal</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      
+      <ion-list>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="home">
+            <ion-icon slot="start" name="home"></ion-icon>Página principal
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="ver-existencias">
+            <ion-icon slot="start" name="megaphone"></ion-icon>¡Productos que faltan!
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="principal"></ion-router-outlet>
+</ion-split-pane>
+</ion-app>
