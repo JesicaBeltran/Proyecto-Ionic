@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="fondoazul"> 
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" name="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>¡Productos que faltan!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list inset>
+    <ion-item *ngFor="let aviso of avisos">
+      <ion-row>
+        <ion-col col-12>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{aviso.supermercado}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+         Producto: {{aviso.producto}}
+        </ion-card-content>
+        <ion-button routerLink="../" color="azulmenu">
+          <ion-icon style="zoom:1.5;" name="eye-outline"></ion-icon>
+        </ion-button>
+  
+        <ion-button routerLink="../" color="warning">
+          <ion-icon style="zoom:1.5;" name="alert-outline"></ion-icon>
+        </ion-button>
+      </ion-card>
+    </ion-col>
+    </ion-row>
+    </ion-item>
+  </ion-list>
+
+<ion-button routerLink="../crearAviso" color="verdeaceptar">
+  <ion-icon style="zoom:1.5;" name="add-outline" color="light"></ion-icon>
+</ion-button>
+</ion-content>
