@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar class="fondoazul">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  <ion-title>Notificar devastecimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+          <ion-list>
+              <ion-label>
+                Seleccione establecimiento
+              </ion-label>
+            <ion-item >
+              <ion-select [(ngModel)]="supermercado" placeholder="Seleccione uno">
+                <ion-select-option value="Mercadona">Mercadona</ion-select-option>
+                <ion-select-option value="Dia">Dia</ion-select-option>
+                <ion-select-option value="El Jamón">El Jamón</ion-select-option>
+                <ion-select-option value="Otro">Otro</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+  </ion-col>
+
+  <ion-col col-6>
+        <ion-list>
+          <ion-label>
+            Producto: 
+          </ion-label>
+        <ion-item>
+        <ion-input type="text" [(ngModel)]="producto"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-6>
+          <ion-label>
+    ¿Quieres añadir más información?
+  </ion-label>
+  <ion-item>
+    <ion-textarea [(ngModel)]="comentario" placeholder="Ejemplo: sólo queda una"></ion-textarea>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col col-3>
+  <ion-button (click)=crearAviso(supermercado,producto,comentario) color="verdeaceptar">
+    <ion-icon style="zoom:1.5;"name="checkmark-outline" color="light"></ion-icon>
+  </ion-button>
+  <ion-button routerLink="../ver-existencias" color="rojocancelar">
+    <ion-icon style="zoom:1.5;"name="close-outline" color="light"></ion-icon>
+  </ion-button>
+</ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
