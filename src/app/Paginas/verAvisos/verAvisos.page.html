@@ -5,35 +5,50 @@
     </ion-buttons>
     <ion-title>¡Productos que faltan!</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="3" size="auto" style="margin-top: 10px;">
+        <ion-searchbar placeholder="Nombre de supermercado" [(ngModel)]="palabraClave" (ionInput)="avisosEncontrados($event)"></ion-searchbar>
+      </ion-col> 
+      <ion-col push-md="5" size="auto">
+        <ion-list>
+          <ion-item>
+            <ion-label>Ordenar por</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="f">Más reciente</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+  </ion-row>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-list inset>
-    <ion-item *ngFor="let aviso of avisos">
-      <ion-row>
-        <ion-col col-12>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>{{aviso.supermercado}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-         Producto: {{aviso.producto}}
-        </ion-card-content>
-        <ion-button routerLink="../" color="azulmenu">
-          <ion-icon style="zoom:1.5;" name="eye-outline"></ion-icon>
-        </ion-button>
-  
-        <ion-button routerLink="../" color="warning">
-          <ion-icon style="zoom:1.5;" name="alert-outline"></ion-icon>
-        </ion-button>
-      </ion-card>
-    </ion-col>
+ 
+ <ion-row id="mostrar" style="visibility:hidden;">
+   <ion-col>
+      <ion-label>
+         <ion-text style="text-align: center;"  >No existen resultados...</ion-text>
+        </ion-label>
+      </ion-col>
     </ion-row>
-    </ion-item>
-  </ion-list>
 
-<ion-button routerLink="../crearAviso" color="verdeaceptar">
-  <ion-icon style="zoom:1.5;" name="add-outline" color="light"></ion-icon>
-</ion-button>
+      <ion-list inset>
+          <ion-item *ngFor="let aviso of avisos">
+                <ion-card style="width: 100%;">
+                  <ion-card-header>
+                    <ion-card-title>{{aviso.supermercado}}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                  Producto: {{aviso.producto}}
+                  </ion-card-content>
+                  <ion-button style="float:right;" routerLink="../" id={{aviso.id}} color="warning">
+                    <ion-icon style="zoom:1.5;" name="alert-outline"></ion-icon>
+                  </ion-button>
+                </ion-card>
+          </ion-item>
+      </ion-list>
+    
 </ion-content>

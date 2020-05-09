@@ -22,6 +22,22 @@ getAviso(){
   })
     )
 }
+//PETICION GET AVISOS BUSQUEDA
+
+getAvisoBuscados(palabraClave:string){
+  var dato=palabraClave;
+  var api_url="https://localhost:44394/api/GetAvisoItemsBuscador/"+dato;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
+//PETICION POST A API
 postAviso(arrayNewAviso: any){
 
   let datos = arrayNewAviso;
