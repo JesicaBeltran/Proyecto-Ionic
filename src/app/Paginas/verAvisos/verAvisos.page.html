@@ -1,21 +1,21 @@
 <ion-header>
-  <ion-toolbar class="fondoazul"> 
+  <ion-toolbar class="gradiente"> 
     <ion-buttons slot="start">
       <ion-menu-button color="light" name="first"></ion-menu-button>
     </ion-buttons>
     <ion-title>¡Productos que faltan!</ion-title>
   </ion-toolbar>
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-row>
       <ion-col size="3" size="auto" style="margin-top: 10px;">
-        <ion-searchbar placeholder="Nombre de supermercado" [(ngModel)]="palabraClave" (ionInput)="avisosEncontrados($event)"></ion-searchbar>
+        <ion-searchbar class="fondoBlanco" placeholder="Nombre de supermercado" [(ngModel)]="palabraClave" (ionInput)="avisosEncontrados($event)"></ion-searchbar>
       </ion-col> 
       <ion-col push-md="5" size="auto">
         <ion-list>
           <ion-item>
             <ion-label>Ordenar por</ion-label>
-            <ion-select placeholder="Select One">
-              <ion-select-option value="f">Más reciente</ion-select-option>
+            <ion-select [(ngModel)]="orden" (ngModelChange)=avisosOrden(orden) placeholder="ordenar por">
+              <ion-select-option value="fecha">Más reciente</ion-select-option>
               <ion-select-option value="m">Male</ion-select-option>
             </ion-select>
           </ion-item>
@@ -36,7 +36,7 @@
     </ion-row>
 
       <ion-list inset>
-          <ion-item *ngFor="let aviso of avisos">
+          <ion-item lines="none" *ngFor="let aviso of avisos">
                 <ion-card style="width: 100%;">
                   <ion-card-header>
                     <ion-card-title>{{aviso.supermercado}}</ion-card-title>

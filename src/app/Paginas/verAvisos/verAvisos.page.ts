@@ -15,16 +15,7 @@ avisos:any;
 
   ngOnInit() {
     this.verAvisos();
-    /*this.servicioGet.getAviso().then(data => {
-      this.avisos=data;
-      console.log(this.avisos);
-      if(this.avisos==""){
-       // this.Items=data;
-        console.log("vaciooo");
-      }
-    }).catch(data => {
-      console.log(data);
-    })*/
+    
   }
   verAvisos(){
     this.ocultar();
@@ -42,11 +33,11 @@ avisos:any;
       console.log(data);
     })
   }
-  
+  //Avisos encontrados del buscador
   avisosEncontrados(ev: any){
     var palabraClave=ev.target.value;
     console.log(palabraClave);
-this.ocultar();
+    this.ocultar();
     this.servicioGet.getAvisoBuscados(palabraClave).then(data => {
       this.avisos=data;
       console.log(this.avisos);
@@ -64,6 +55,8 @@ this.ocultar();
       console.log(data);
     })
 
+    //Avisos ordenados
+
     
     
   }
@@ -74,4 +67,13 @@ this.ocultar();
     document.getElementById("mostrar").style.visibility="hidden";
   }
 
+  avisosOrden(orden:string){
+    //var orden=ev.itemForm.value;
+    console.log(orden);
+    
+    this.servicioGet.getAvisoOrden(orden).then(data => {
+      this.avisos=data;
+      console.log(this.avisos);
+    });
+  }
 }

@@ -57,5 +57,19 @@ postAviso(arrayNewAviso: any){
   
 }
 
+//Ordenar avisos
+getAvisoOrden(orden:string){
+  var dato=orden;
+  var api_url="https://localhost:44394/api/GetAvisoItemsOrden/"+dato;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
 
 }
