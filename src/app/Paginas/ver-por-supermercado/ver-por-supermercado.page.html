@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar class="gradiente"> 
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" name="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Buscar por supermercado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md size="12">
+          <ion-list>
+              <ion-label>
+                Seleccione su localidad
+              </ion-label>
+            <ion-item >
+              <ion-select  [(ngModel)]="localidad" placeholder="Seleccione uno">
+                <ion-select-option value="Huelva">Huelva</ion-select-option>
+                <ion-select-option value="Sevilla">Sevilla</ion-select-option>
+                <ion-select-option value="Cadiz">Cádiz</ion-select-option>
+                <ion-select-option value="Cordoba">Córdoba</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+  </ion-col>
+    </ion-row>
+    <ion-row>
+  <ion-col size="6" size-md size="12">
+        <ion-list>
+          <ion-label>
+            Seleccione supermercado
+          </ion-label>
+        <ion-item>
+          <ion-select  [(ngModel)]="supermercado" placeholder="Seleccione uno">
+            <ion-select-option value="Mercadona">Mercadona</ion-select-option>
+            <ion-select-option value="Dia">Día</ion-select-option>
+            <ion-select-option value="El jamon">El jamón</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top: 40px;">
+      <ion-col offset="5">
+        <ion-button class="estiloLila" routerLink="resultado-por-supermercado" (click)=verAvisosSupermercado(localidad,supermercado)>
+         Buscar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+    
+</ion-content>
+

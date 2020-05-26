@@ -1,0 +1,40 @@
+@media only screen and (min-width: 600px) {
+    ion-title{
+      text-align: center;
+    }
+    ion-col{
+      flex-flow: column;
+    }
+  }
+
+  ion-row{
+    margin: 20px;
+  }
+
+  .gradiente{
+    --background: var(--ion-color-gradiente);
+    --ion-text-color: var(--ion-color-gradiente-contrast);
+  }
+  ion-item{
+    //border-color: #D81159;
+    --border-color: #752169;
+    border-top: yellow;
+    
+  }
+  ion-item{
+    border-bottom: 2px solid #752169;
+    position: relative;
+    background-color: transparent;
+      /*left: 0px;
+      top: 135px;
+      
+      width:100%;*/
+      --highlight-color-valid: white;
+  }
+.estiloLila{
+  background-color: #752169;
+  color: white;
+}
+ion-button{
+  --background:#752169;
+}

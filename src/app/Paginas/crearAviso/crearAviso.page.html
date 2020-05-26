@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-  <ion-title>Crear un aviso</ion-title>
+  <ion-title>Notificar</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -39,19 +39,32 @@
   </ion-row>
 
   <ion-row>
-    <ion-col col-6>
+    <ion-col size="6" size-md size="12">
           <ion-label>
     ¿Quieres añadir más información?
   </ion-label>
   <ion-item>
     <ion-textarea [(ngModel)]="comentario" placeholder="Ejemplo: sólo queda una"></ion-textarea>
   </ion-item>
+    </ion-col>
+<ion-col size="6" size-md size="12">
+<ion-label>
+  Localidad
+</ion-label>
+<ion-item >
+  <ion-select  [(ngModel)]="localidad" placeholder="Seleccione uno">
+                <ion-select-option value="Huelva">Huelva</ion-select-option>
+                <ion-select-option value="Sevilla">Sevilla</ion-select-option>
+                <ion-select-option value="Cadiz">Cádiz</ion-select-option>
+                <ion-select-option value="Cordoba">Córdoba</ion-select-option>
+  </ion-select>
+</ion-item>
 </ion-col>
 </ion-row>
 
   <ion-row style="margin-top: 40px;">
       <ion-col offset="5">
-        <ion-button class="estiloLila" routerLink="../verAvisos" (click)=crearAviso(supermercado,producto,comentario)>
+        <ion-button class="estiloLila" routerLink="../verAvisos" (click)=postAviso(supermercado,producto,comentario,localidad)>
          Crear aviso
         </ion-button>
       </ion-col>
