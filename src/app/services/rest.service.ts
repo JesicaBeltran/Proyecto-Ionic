@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
-  constructor(public Http: HttpClient) { }
+
+  newAviso:any;
+  constructor(public Http: HttpClient) {}
 
   ngOnInit(){
     
@@ -22,6 +25,8 @@ getAviso(){
   })
     )
 }
+
+
 //PETICION GET AVISOS BUSQUEDA
 
 getAvisoBuscados(palabraClave:string){
@@ -41,7 +46,7 @@ getAvisoBuscados(palabraClave:string){
 postAviso(arrayNewAviso: any){
 
   let datos = arrayNewAviso;
-  
+  this.newAviso=datos;
   let options = {
     headers: {
       'Content-Type': 'application/json'
@@ -52,9 +57,10 @@ postAviso(arrayNewAviso: any){
   this.Http.post(url,JSON.stringify(datos),options)
      .subscribe(data => {
        resolve(data);
+       console.log(data);
       });
  });
-  
+ 
 }
 
 //Ordenar avisos
@@ -70,6 +76,30 @@ getAvisoOrden(orden:string){
   })
     )
 }
+//POR SUPERMERCADO
+getAvisoSupermercado(localidad:string, supermercado:string){
+  var api_url="https://localhost:44394/api/GetAvisoSupermercado/"+localidad+"/"+supermercado;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+//POR PRODUCTO
 
+getAvisoProducto(localidad:string, producto:string){
+  var api_url="https://localhost:44394/api/GetAvisoProducto/"+localidad+"/"+producto;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
 
 }

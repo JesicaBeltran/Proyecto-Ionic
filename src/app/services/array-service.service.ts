@@ -6,9 +6,10 @@ import { Injectable } from '@angular/core';
 export class ArrayServiceService {
   avisos:any;
   avisosSupermercado:any;
+  avisosProducto:any;
   localidad:string;
   supermercado:string;
-
+  producto:string;
   constructor() { }
   
 
@@ -23,6 +24,11 @@ export class ArrayServiceService {
     this.localidad=localidad;
     this.supermercado=supermercado;
   }
+  crearAvisosProducto(data:any,localidad:string, producto:string){
+    this.avisosProducto=data;
+    this.localidad=localidad;
+    this.producto=producto;
+  }
   getAvisos(){
     return this.avisos;
   }
@@ -30,10 +36,17 @@ export class ArrayServiceService {
     console.log(this.avisosSupermercado);
     return this.avisosSupermercado;
   }
+  getAvisosProducto(){
+    console.log(this.avisosProducto);
+    return this.avisosProducto;
+  }
   getLocalidad(){
     return this.localidad;
   }
   getSupermercado(){
     return this.supermercado;
+  }
+  getProducto(){
+    return this.producto;
   }
 }
