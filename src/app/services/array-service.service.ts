@@ -1,44 +1,79 @@
 import { Injectable } from '@angular/core';
+import { NgForOf } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArrayServiceService {
+  
   avisos:any;
-  avisosSupermercado:any;
-  avisosProducto:any;
   localidad:string;
   supermercado:string;
   producto:string;
+  provincias:any;
+  supermercados:any;
+  todasLocalidades:any;
+  localidades:any[] = [];
+  resultadoBusqueda:any;
+
   constructor() { }
+  crearArraySupermercados(data:any){
+    this.supermercados=data;
+  }
+  crearArrayProvincias(data:any){
+    this.provincias=data;
+  }
+  crearArrayLocalidades(data:any,idProvincia:string){
+    this.localidades=[];
+    this.todasLocalidades=data;
+   
+
+     this.todasLocalidades.forEach(element => {
+     
+     if(element['provincia_id'] === idProvincia){
+     
+    this.localidades.push(element);
+     }
+   });
   
+  }
 
   crearArrayAvisos(data:any){
+    this.avisos=data;
+  }
+  crearArrayPorProvincia(data:any){
+    this.avisos=data;
+  }
+  crearArrayPorSupermercado(data:any){
+    this.avisos=data;
+  }
+  crearArrayPorProvinciaYSupermercado(data:any){
+    this.avisos=data;
+  }
+  crearArrayPorProvinciaYLocalidad(data:any){
+    this.avisos=data;
+  }
+  crearArrayPorProvinciaYLocalidadYSupermercado(data:any){
     this.avisos=data;
   }
   agregarNuevoAviso(avisoNuevo:any){
     this.avisos.push(avisoNuevo);
   }
-  crearAvisosSupermercado(data:any,localidad:string, supermercado:string){
-    this.avisosSupermercado=data;
-    this.localidad=localidad;
-    this.supermercado=supermercado;
-  }
-  crearAvisosProducto(data:any,localidad:string, producto:string){
-    this.avisosProducto=data;
-    this.localidad=localidad;
-    this.producto=producto;
-  }
   getAvisos(){
     return this.avisos;
   }
-  getAvisosSupermercado(){
-    console.log(this.avisosSupermercado);
-    return this.avisosSupermercado;
+
+  getAvisosBuscados(palabraClave:string){
+//buscar en arrayavisos
+this.resultadoBusqueda=[];
+this.avisos.forEach(element => {
+ 
+  if(element['producto'].includes(palabraClave)){
+    this.resultadoBusqueda.push(element);
   }
-  getAvisosProducto(){
-    console.log(this.avisosProducto);
-    return this.avisosProducto;
+});
+console.log(this.resultadoBusqueda);
+return this.resultadoBusqueda;
   }
   getLocalidad(){
     return this.localidad;
@@ -49,4 +84,14 @@ export class ArrayServiceService {
   getProducto(){
     return this.producto;
   }
+  getProvincias(){
+    return this.provincias;
+  }
+  getSupermercados(){
+    return this.supermercados;
+  }
+  getLocalidades(){
+    return this.localidades;
+  }
+  
 }

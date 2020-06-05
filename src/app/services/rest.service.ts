@@ -25,13 +25,8 @@ getAviso(){
   })
     )
 }
-
-
-//PETICION GET AVISOS BUSQUEDA
-
-getAvisoBuscados(palabraClave:string){
-  var dato=palabraClave;
-  var api_url="https://localhost:44394/api/GetAvisoItemsBuscador/"+dato;
+getAvisoPorProvincia(provincia_id:string){
+  var api_url="https://localhost:44394/api/GetAvisoItems/provincia/"+provincia_id;
   return new Promise (resolve =>
   this.Http.get(api_url).subscribe(data => {
   resolve(data);
@@ -41,6 +36,67 @@ getAvisoBuscados(palabraClave:string){
   })
     )
 }
+getAvisoPorSupermercado(supermercado_id:string){
+  var api_url="https://localhost:44394/api/GetAvisoItems/supermercado/"+supermercado_id;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
+getAvisoPorProvinciaYLocalidad(provincia_id:string,localidad_id:string){
+  var api_url="https://localhost:44394/api/GetAvisoItems/pl/"+provincia_id+"/"+localidad_id;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+getAvisoPorProvinciaYSupermercado(provincia_id:string,supermercado_id:string){
+  var api_url="https://localhost:44394/api/GetAvisoItems/ps/"+provincia_id+"/"+supermercado_id;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  console.log(data);
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
+getAvisoPorProvinciaYLocalidadYSupermercado(provincia_id:string,localidad_id:string,supermercado_id:string){
+  var api_url="https://localhost:44394/api/GetAvisoItems/pls/"+provincia_id+"/"+localidad_id+"/"+supermercado_id;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
+//PETICION GET AVISOS BUSQUEDA
+
+/*getAvisoBuscados(localidad_id:string,supermerado_id:string,palabraClave:string){
+  
+  var api_url="https://localhost:44394/api/GetAvisoItems/"+localidad_id+"/"+supermerado_id+"/"+palabraClave;
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  
+  }, err => {
+    console.log(err);
+  })
+    )
+}*/
 
 //PETICION POST A API
 postAviso(arrayNewAviso: any){
@@ -76,30 +132,42 @@ getAvisoOrden(orden:string){
   })
     )
 }
-//POR SUPERMERCADO
-getAvisoSupermercado(localidad:string, supermercado:string){
-  var api_url="https://localhost:44394/api/GetAvisoSupermercado/"+localidad+"/"+supermercado;
-  return new Promise (resolve =>
-  this.Http.get(api_url).subscribe(data => {
-  resolve(data);
-  
-  }, err => {
-    console.log(err);
-  })
-    )
-}
-//POR PRODUCTO
 
-getAvisoProducto(localidad:string, producto:string){
-  var api_url="https://localhost:44394/api/GetAvisoProducto/"+localidad+"/"+producto;
+//supermercados
+getSupermercados(){
+  var api_url="https://localhost:44394/api/GetSupermercados";
   return new Promise (resolve =>
   this.Http.get(api_url).subscribe(data => {
   resolve(data);
-  
+  console.log(data);
   }, err => {
     console.log(err);
   })
     )
 }
+getProvincias(){
+  var api_url="https://localhost:44394/api/GetProvincias";
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  console.log(data);
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+getLocalidades(){
+  var api_url="https://localhost:44394/api/GetLocalidades";
+  return new Promise (resolve =>
+  this.Http.get(api_url).subscribe(data => {
+  resolve(data);
+  console.log(data);
+  }, err => {
+    console.log(err);
+  })
+    )
+}
+
+
 
 }

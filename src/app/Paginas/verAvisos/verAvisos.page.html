@@ -3,23 +3,49 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light" name="first"></ion-menu-button>
     </ion-buttons>
-    <ion-title>¡Productos que faltan!</ion-title>
+    <ion-title>Notificaciones</ion-title>
   </ion-toolbar>
-  <ion-toolbar >
+  
+  <ion-toolbar>
     <ion-row>
+    
       <ion-col size="3" size="auto" style="margin-top: 10px;">
-        <ion-searchbar class="fondoBlanco" placeholder="Nombre de supermercado" [(ngModel)]="palabraClave" (ionInput)="avisosEncontrados($event)"></ion-searchbar>
-      </ion-col> 
-      <ion-col push-md="5" size="auto">
-        <ion-list>
-          <ion-item>
-            <ion-label>Ordenar por</ion-label>
-            <ion-select [(ngModel)]="orden" (ngModelChange)=avisosOrden(orden) placeholder="ordenar por">
-              <ion-select-option value="fecha">Más reciente</ion-select-option>
-              <ion-select-option value="m">Male</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
+        <ion-item>
+          <ion-label>Provincia</ion-label>
+          <ion-select [(ngModel)]="provincia" id="provinciaSelect" cancelText="cancelar" okText="aceptar" (ionChange)="enviarProvincia($event)">
+            <ion-select-option value="" >Seleccione provincia</ion-select-option>
+            <ion-select-option *ngFor="let provincia of provincias" value="{{provincia.provincia_id}}">{{provincia.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3" size="auto" style="margin-top: 10px;">
+        <ion-item>
+          <ion-label>Localidad</ion-label>
+          <ion-select [(ngModel)]="localidad" id="localidadSelect" cancelText="cancelar" okText="aceptar" (ionChange)="enviarLocalidad($event)">
+            <ion-select-option value="" >Seleccione localidad</ion-select-option>
+            <ion-select-option  *ngFor="let localidad of localidades" value="{{localidad.localidad_id}}">{{localidad.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3" size="auto" style="margin-top: 10px;">
+        <ion-item >
+          <ion-label>Supermercado</ion-label>
+          <ion-select [(ngModel)]="supermercado" id="supermercadoSelect" cancelText="cancelar" okText="aceptar" (ionChange)="enviarSupermercado($event)">
+            <ion-select-option value="">Seleccione supermercado</ion-select-option>
+            <ion-select-option *ngFor="let supermercado of supermercados" value="{{supermercado.supermercado_id}}" >{{supermercado.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3" size="auto" style="margin-top: 10px;">
+        <ion-searchbar class="fondoBlanco" placeholder="producto" [(ngModel)]="palabraClave" (ionInput)="avisosEncontrados($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col size="3" size="auto" style="margin-top: 10px;">
+        <ion-item>
+          <ion-label>Ordenar</ion-label>
+          <ion-select [(ngModel)]="orden" (ngModelChange)=avisosOrden(orden)>
+            <ion-select-option value="alfabetico">Orden alfabético (Prouctos)</ion-select-option>
+          </ion-select>
+        </ion-item>
       </ion-col>
   </ion-row>
   </ion-toolbar>
@@ -36,13 +62,16 @@
     </ion-row>
 
       <ion-list inset>
-          <ion-item lines="none" *ngFor="let aviso of avisos">
+          <ion-item lines="none" *ngFor="let aviso of arrayAvisos">
                 <ion-card style="width: 100%;">
                   <ion-card-header>
-                    <ion-card-title>{{aviso.supermercado}}</ion-card-title>
+                    <ion-card-title>Supermercado {{aviso.supermercado_id}}</ion-card-title>
                   </ion-card-header>
                   <ion-card-content>
-                  Producto: {{aviso.producto}}
+                  Producto: {{aviso.producto}}<br>
+                  {{aviso.comentario}}<br>
+                  Ubicación: {{aviso.provincia}}<br><br>
+                  <strong>Fecha: {{aviso.fechaCreacion}}</strong>
                   </ion-card-content>
                   <ion-button style="float:right;" routerLink="../" id={{aviso.id}} color="warning">
                     <ion-icon style="zoom:1.5;" name="alert-outline"></ion-icon>
