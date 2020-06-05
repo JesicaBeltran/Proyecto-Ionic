@@ -6,65 +6,69 @@
   <ion-title>Notificar</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
    <ion-grid>
     <ion-row>
       <ion-col size="6" size-md size="12">
           <ion-list>
-              <ion-label>
-                Seleccione establecimiento
-              </ion-label>
-            <ion-item >
-              <ion-select  [(ngModel)]="supermercado" placeholder="Seleccione uno">
-                <ion-select-option value="Mercadona">Mercadona</ion-select-option>
-                <ion-select-option value="Dia">Dia</ion-select-option>
-                <ion-select-option value="El Jamón">El Jamón</ion-select-option>
-                <ion-select-option value="Otro">Otro</ion-select-option>
-              </ion-select>
-            </ion-item>
+              <ion-item>
+                <ion-label>Provincia</ion-label>
+                <ion-select [(ngModel)]="provincia" id="provinciaSelect" cancelText="cancelar" okText="aceptar" (ionChange)="enviarProvincia($event)">
+                  <ion-select-option value="" >Seleccione provincia</ion-select-option>
+                  <ion-select-option *ngFor="let provincia of provincias" value="{{provincia.provincia_id}}">{{provincia.nombre}}</ion-select-option>
+                </ion-select>
+              </ion-item>
           </ion-list>
   </ion-col>
-
   <ion-col size="6" size-md size="12">
         <ion-list>
-          <ion-label>
-            Producto: 
-          </ion-label>
-        <ion-item>
-        <ion-input type="text" [(ngModel)]="producto"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label>Localidad</ion-label>
+            <ion-select [(ngModel)]="localidad" id="localidadSelect" cancelText="cancelar" okText="aceptar">
+              <ion-select-option value="" >Seleccione localidad</ion-select-option>
+              <ion-select-option  *ngFor="let localidad of localidades" value="{{localidad.localidad_id}}">{{localidad.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col size="6" size-md size="12">
-          <ion-label>
-    ¿Quieres añadir más información?
-  </ion-label>
-  <ion-item>
-    <ion-textarea [(ngModel)]="comentario" placeholder="Ejemplo: sólo queda una"></ion-textarea>
-  </ion-item>
+      <ion-list>
+        <ion-item>
+      <ion-label>
+        Producto: 
+      </ion-label>
+        <ion-input type="text" [(ngModel)]="producto" placeholder="Ejemplo: Leche puleva"></ion-input>
+      </ion-item>
+      </ion-list>
     </ion-col>
-<ion-col size="6" size-md size="12">
-<ion-label>
-  Localidad
-</ion-label>
-<ion-item >
-  <ion-select  [(ngModel)]="localidad" placeholder="Seleccione uno">
-                <ion-select-option value="Huelva">Huelva</ion-select-option>
-                <ion-select-option value="Sevilla">Sevilla</ion-select-option>
-                <ion-select-option value="Cadiz">Cádiz</ion-select-option>
-                <ion-select-option value="Cordoba">Córdoba</ion-select-option>
-  </ion-select>
-</ion-item>
-</ion-col>
+    <ion-col size="6" size-md size="12">
+      <ion-list>
+        <ion-item>
+      <ion-label>Supermercado</ion-label>
+      <ion-select [(ngModel)]="supermercado" id="supermercadoSelect" cancelText="cancelar" okText="aceptar">
+        <ion-select-option value="">Seleccione supermercado</ion-select-option>
+        <ion-select-option *ngFor="let supermercado of supermercados" value="{{supermercado.supermercado_id}}" >{{supermercado.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      </ion-list>
+    </ion-col>
 </ion-row>
-
+<ion-row>
+  <ion-col size="6" size-md size="12">
+    <ion-label>
+      ¿Quiere añadir más información?
+    </ion-label>
+    <ion-item >
+      <ion-textarea [(ngModel)]="comentario" placeholder="Ejemplo: No hay existencias"></ion-textarea>
+    </ion-item>
+  </ion-col>
+</ion-row>
   <ion-row style="margin-top: 40px;">
       <ion-col offset="5">
-        <ion-button class="estiloLila" routerLink="../verAvisos" (click)=postAviso(supermercado,producto,comentario,localidad)>
+        <ion-button class="estiloLila" routerLink="../verAvisos" (click)=postAviso(supermercado,provincia,localidad,producto,comentario)>
          Crear aviso
         </ion-button>
       </ion-col>
