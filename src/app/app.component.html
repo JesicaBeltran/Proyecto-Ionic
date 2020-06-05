@@ -1,29 +1,49 @@
-<ion-app>aa
+<ion-app>
   <ion-split-pane when="md" contentId="principal">
   <ion-menu side="start" menuId="first" contentId="principal">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Menu principal</ion-title>
-      </ion-toolbar>
+      
     </ion-header>
     <ion-content>
       
       <ion-list>
-
         <ion-menu-toggle autoHide="false">
-          <ion-item routerLink="home">
-            <ion-icon slot="start" name="home"></ion-icon>Página principal
+          <ion-item  routerLink="home">
+            <ion-icon class="rosa" slot="start" name="home"></ion-icon><ion-label class="rosa">Inicio</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="verAvisos">
+            <ion-icon slot="start" name="megaphone"></ion-icon>Ver notificaciones
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="crearAviso">
+            <ion-icon slot="start" name="add"></ion-icon>Notificar producto agotado
           </ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle autoHide="false">
-          <ion-item routerLink="ver-existencias">
-            <ion-icon slot="start" name="megaphone"></ion-icon>¡Productos que faltan!
+          <ion-item lines="none" routerLink="Estadisticas">
+            <ion-icon slot="start" name="bar-chart"></ion-icon>Estadisticas
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="Noticias de esta semana">
+            <ion-icon slot="start" name="earth"></ion-icon>Noticias de esta semana
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="Preguntas frecuentes">
+            <ion-icon slot="start" name="help-circle"></ion-icon>Preguntas frecuentes
           </ion-item>
         </ion-menu-toggle>
 
       </ion-list>
-
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="principal"></ion-router-outlet>

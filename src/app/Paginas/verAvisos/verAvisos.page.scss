@@ -1,0 +1,19 @@
+@media only screen and (min-width: 600px) {
+    ion-title{
+      text-align: center;
+      color: white;
+    }
+    }
+   ion-card{
+     background-color: white;
+   }
+    .gradiente{
+      --background: var(--ion-color-gradiente);
+      --ion-text-color: white;
+    }
+    .fondoBlanco{
+      --background: white;
+    }
+    body{
+      background-color: #752169;
+    }

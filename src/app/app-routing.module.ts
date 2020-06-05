@@ -3,14 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: 'home', loadChildren: () => import('./Paginas/home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'existencias',
-    loadChildren: () => import('./existencias/existencias.module').then( m => m.ExistenciasPageModule)
+    path: 'crearAviso',
+    loadChildren: () => import('./Paginas/crearAviso/crearAviso.module').then( m => m.ExistenciasPageModule)
   },
   {
-    path: 'ver-existencias',
-    loadChildren: () => import('./ver-existencias/ver-existencias.module').then( m => m.VerExistenciasPageModule)
+    path: 'verAvisos',
+    loadChildren: () => import('./Paginas/verAvisos/verAvisos.module').then( m => m.VerExistenciasPageModule)
   },
 ];
 

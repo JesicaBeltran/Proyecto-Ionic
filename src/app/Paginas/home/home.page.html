@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="gradiente">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" name="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--<ion-img src="assets/images/supervacio.jpeg"></ion-img>-->
+  <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+            <ion-img style="transform:rotate(10deg); height: 500px; float: left;" src="assets/images/wellcome.png"></ion-img>
+          <h4>hola</h4>
+         
+          </ion-slide>
+        <ion-slide>
+          <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 3</h1>
+        </ion-slide>
+      </ion-slides>
+</ion-content>
