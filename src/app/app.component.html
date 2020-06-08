@@ -1,29 +1,53 @@
-<ion-app>aa
+<ion-app>
   <ion-split-pane when="md" contentId="principal">
   <ion-menu side="start" menuId="first" contentId="principal">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Menu principal</ion-title>
-      </ion-toolbar>
+      
     </ion-header>
     <ion-content>
       
       <ion-list>
-
         <ion-menu-toggle autoHide="false">
-          <ion-item routerLink="home">
-            <ion-icon slot="start" name="home"></ion-icon>Página principal
+          <ion-item  routerLink="home">
+            <ion-icon class="rosa" slot="start" name="home"></ion-icon><ion-label class="rosa">Inicio</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="verAvisos">
+            <ion-icon slot="start" name="megaphone"></ion-icon>Ver notificaciones
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="crearAviso">
+            <ion-icon slot="start" name="add"></ion-icon>Notificar producto agotado
           </ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle autoHide="false">
-          <ion-item routerLink="ver-existencias">
-            <ion-icon slot="start" name="megaphone"></ion-icon>¡Productos que faltan!
+          <ion-item lines="none" routerLink="estadisticas">
+            <ion-icon slot="start" name="bar-chart"></ion-icon>Estadisticas
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false"> 
+          <ion-item lines="none" routerLink="preguntas">
+            <ion-icon slot="start" name="help"></ion-icon>Preguntas frecuentes
           </ion-item>
         </ion-menu-toggle>
 
       </ion-list>
-
+      <div style="margin-top: 250px;margin-left: 10px;">
+        <img class="logo" src="assets/images/logo.png"><ion-label class="logoTexto">FoodLack</ion-label>
+      </div>
+      <div style="margin-left: 10px;margin-top: 10px;">
+        <ion-icon class="facebook" name="logo-facebook"></ion-icon>
+        <ion-icon class="insta" name="logo-instagram"></ion-icon>
+        <ion-icon class="tweet" name="logo-twitter"></ion-icon>
+        <ion-icon class="gmail" name="mail"></ion-icon>
+      </div>
+      
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="principal"></ion-router-outlet>

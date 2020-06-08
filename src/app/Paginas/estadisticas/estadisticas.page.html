@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="gradiente"> 
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" name="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Estadísticas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="12" size-md size="12">
+      <div class="totaldiv">
+        <ion-label class="totalesTexto">Total de notificaciones hoy</ion-label><br>
+        <ion-label class="totalesNumero">{{totalAvisos}}</ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" size-md size="12">
+      <div class="graficaCirculo">
+        <ion-label class="titulo">Supermercados de España con más devastecimiento</ion-label><br><br>
+        <div style="display: block"><canvas id="yudhatp-chart"></canvas></div>
+      </div>
+    </ion-col>
+    <ion-col size="6" size-md size="12">
+      <div class="graficaBarras">
+        <canvas id="densityChart" width="600" height="400"></canvas>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
