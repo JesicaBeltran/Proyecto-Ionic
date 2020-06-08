@@ -11,10 +11,42 @@
         }
 
 .logo{
-  width: 100px;
-  height: 100px;
-  position: relative;
-  float: left;
+  width: 50px;
+  height: 50px;
+  position: relative; 
+}
+.redes{
+  color: #752169;
+  margin-right: 5px;
+}
+.facebook{
+  color: #3b5998;
+  margin-right: 15px;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}.insta{
+  color:  #bc2a8d;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.tweet{
+  color: #00acee;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.gmail{
+  color: 	#c71610;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.logoTexto{
+  color: #752169;
+  font-weight: bold;
+  font-size: 16pt;
 }
 .rosa{
   color: #752169;
@@ -27,9 +59,3 @@
 
   
 }
-/**@media only screen and (min-width: 600px) {
-  .vertical{
-    
-    display:none;
-  }
-  }*/

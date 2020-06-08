@@ -12,6 +12,14 @@ const routes: Routes = [
     path: 'verAvisos',
     loadChildren: () => import('./Paginas/verAvisos/verAvisos.module').then( m => m.VerExistenciasPageModule)
   },
+  {
+    path: 'estadisticas',
+    loadChildren: () => import('./Paginas/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
+  },
+  {
+    path: 'preguntas',
+    loadChildren: () => import('./Paginas/preguntas/preguntas.module').then( m => m.PreguntasPageModule)
+  },
 ];
 
 @NgModule({
