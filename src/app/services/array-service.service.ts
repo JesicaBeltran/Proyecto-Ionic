@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NgForOf } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,7 @@ export class ArrayServiceService {
   todasLocalidades:any;
   localidades:any[] = [];
   resultadoBusqueda:any;
+  totalAvisos:any;
 
   constructor() { }
   crearArraySupermercados(data:any){
@@ -26,54 +26,39 @@ export class ArrayServiceService {
   crearArrayLocalidades(data:any,idProvincia:string){
     this.localidades=[];
     this.todasLocalidades=data;
-   
-
-     this.todasLocalidades.forEach(element => {
+    this.todasLocalidades.forEach(element => {
      
-     if(element['provincia_id'] === idProvincia){
+      if(element['provincia_id'] === idProvincia){
      
-    this.localidades.push(element);
-     }
+        this.localidades.push(element);
+      }
    });
   
   }
-
   crearArrayAvisos(data:any){
     this.avisos=data;
   }
   crearArrayPorProvincia(data:any){
     this.avisos=data;
   }
-  crearArrayPorSupermercado(data:any){
-    this.avisos=data;
-  }
-  crearArrayPorProvinciaYSupermercado(data:any){
-    this.avisos=data;
-  }
   crearArrayPorProvinciaYLocalidad(data:any){
-    this.avisos=data;
-  }
-  crearArrayPorProvinciaYLocalidadYSupermercado(data:any){
     this.avisos=data;
   }
   agregarNuevoAviso(avisoNuevo:any){
     this.avisos.push(avisoNuevo);
+    this.totalAvisos++;
   }
   getAvisos(){
     return this.avisos;
   }
-
   getAvisosBuscados(palabraClave:string){
-//buscar en arrayavisos
-this.resultadoBusqueda=[];
-this.avisos.forEach(element => {
- 
-  if(element['producto'].includes(palabraClave)){
-    this.resultadoBusqueda.push(element);
-  }
-});
-console.log(this.resultadoBusqueda);
-return this.resultadoBusqueda;
+  this.resultadoBusqueda=[];
+  this.avisos.forEach(element => {
+    if(element['producto'].includes(palabraClave)){
+      this.resultadoBusqueda.push(element);
+    }
+  });
+  return this.resultadoBusqueda;
   }
   getLocalidad(){
     return this.localidad;
@@ -93,5 +78,4 @@ return this.resultadoBusqueda;
   getLocalidades(){
     return this.localidades;
   }
-  
 }
