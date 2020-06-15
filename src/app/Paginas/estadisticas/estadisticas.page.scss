@@ -1,0 +1,55 @@
+@media only screen and (min-width: 600px) {
+    ion-title{
+      text-align: center;
+      color: white;
+    }
+    }
+   ion-card{
+     background-color: white;
+   }
+    .gradiente{
+      --background: var(--ion-color-gradiente);
+      --ion-text-color: white;
+    }
+    .fondoBlanco{
+      --background: white;
+    }
+    body{
+      background-color: #752169;
+    }
+    .totalesTexto{
+      color:#752169;
+      font-weight: bold;
+      font-size: 18pt;
+    }
+    .totalesNumero{
+      color:#752169;
+      font-weight: bold;
+      font-size: 24pt;
+    }
+    .totaldiv{
+      margin-bottom: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .titulo{
+      
+      font-size: 14pt;
+    }
+    .graficaCirculo{
+      margin-left: 30px;
+    }
+    .graficaBarras{
+      margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+  .totaldiv{
+    width: 100%;
+    height: 100%;
+  }
+  .graficaCirculo{
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+    }

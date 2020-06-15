@@ -24,7 +24,7 @@
         <ion-list>
           <ion-item>
             <ion-label>Localidad</ion-label>
-            <ion-select [(ngModel)]="localidad" id="localidadSelect" cancelText="cancelar" okText="aceptar">
+            <ion-select [(ngModel)]="localidad" id="localidadSelect" cancelText="cancelar" okText="aceptar" disabled="true">
               <ion-select-option value="" >Seleccione localidad</ion-select-option>
               <ion-select-option  *ngFor="let localidad of localidades" value="{{localidad.localidad_id}}">{{localidad.nombre}}</ion-select-option>
             </ion-select>

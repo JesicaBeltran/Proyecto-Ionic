@@ -3,23 +3,75 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light" name="first"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--<ion-img src="assets/images/supervacio.jpeg"></ion-img>-->
-  <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide>
-            <ion-img style="transform:rotate(10deg); height: 500px; float: left;" src="assets/images/wellcome.png"></ion-img>
-          <h4>hola</h4>
-         
-          </ion-slide>
-        <ion-slide>
-          <h1>Slide 2</h1>
-        </ion-slide>
-        <ion-slide>
-          <h1>Slide 3</h1>
-        </ion-slide>
-      </ion-slides>
+      <div class="bienvenidaInicio">
+        <ion-row>
+          <ion-col size="10" size-md size="12">
+          <div class="textoInicio">
+            <ion-label class="titulo">¡Bienvenido a FoodLack!</ion-label><br><br>
+            <ion-label style="font-size: 14pt;">¿Le gustaría saber si el producto que necesita comprar
+              se encuentra en su supermercado habitual?
+              Con la App FoodLack podrá informarse de qué producto se encuentra
+              agotado en cualquier supermercado en su localidad.
+              ¡Además conseguirá no perder el tiempo en realizar su compra!</ion-label>
+          </div>
+          </ion-col>
+          <ion-col size="2" size-md size="12">
+            <ion-img class="imagenMovil" src="assets/images/comprar2.png"></ion-img>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="seccionesInicio">
+      <ion-row>
+        <ion-col size="6" size-md size="12">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/images/megafono.png">
+            </ion-thumbnail>
+            <div>
+              <ion-label class="pregunta">Ver notificaciones</ion-label><br>
+              <ion-label >Consulta los productos agotados</ion-label>
+            </div>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" size-md size="12">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/images/notificar.png">
+            </ion-thumbnail>
+            <div>
+              <ion-label class="pregunta">Notificar productos agotados</ion-label><br>
+              <ion-label >Comparte con nosotros con una notificacion</ion-label>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-md size="12">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/images/estadistica.png">
+            </ion-thumbnail>
+            <div>
+              <ion-label class="pregunta">Estadísticas</ion-label><br>
+              <ion-label >Podrá ver estadísticas actuales</ion-label>
+            </div>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" size-md size="12">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/images/preguntando.png">
+            </ion-thumbnail>
+            <div>
+              <ion-label class="pregunta">Preguntas frecuentes</ion-label><br>
+              <ion-label >Aquí podrá solucionar sus dudas</ion-label>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
 </ion-content>

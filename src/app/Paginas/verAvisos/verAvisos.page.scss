@@ -7,6 +7,9 @@
    ion-card{
      background-color: white;
    }
+   ion-card-title {
+     color:#752169 ;
+   }
     .gradiente{
       --background: var(--ion-color-gradiente);
       --ion-text-color: white;
@@ -17,3 +20,14 @@
     body{
       background-color: #752169;
     }
+    
+    #localidadSelect,#provinciaSelect,#ordenar,#buscador{
+      width: 400px;
+    }
+    #mensajeResultado{
+      color:#752169 ;
+      font-weight: bold;
+      font-size: 22pt;
+      margin-left: 40px;
+    }
+    
